@@ -1,0 +1,29 @@
+{
+  "name": "json-schema-resource-validation",
+  "version": "1.0.0",
+  "description": "Validation based on JSON schema ",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log(\"TEST\")"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorGus/ValidationFHIR.git"
+  },
+  "keywords": [
+    "FHIR"
+  ],
+  "author": "VictorGus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VictorGus/ValidationFHIR/issues"
+  },
+  "homepage": "https://github.com/VictorGus/ValidationFHIR#readme",
+  "dependencies": {
+    "aja": "^0.4.1",
+    "ajv": "^6.10.0",
+    "djv": "^2.1.2",
+    "js-schema": "^1.0.1",
+    "jsonschema": "^1.2.4"
+  }
+}
