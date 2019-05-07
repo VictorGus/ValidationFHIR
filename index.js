@@ -1,10 +1,22 @@
 var Ajv = require('ajv');
 const fs = require('fs');
-var ajv = new Ajv();
+var ajv = new Ajv({allErrors:true});
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 console.time("Execution time");
 const jsonFile = fs.readFileSync("/home/victor/Downloads/fhir.schema.json");
 const schema = JSON.parse(jsonFile);
+
+const isResourceTypePresented = (resourceProperties) => resourceProperties.includes('resourceType');
+
+function makeValidationError(errorType, param) {
+    const newValidationError = {
+        keyword: errorType,
+        dataPath: '',
+        schemaPath: '#/additionalProperties',
+        params: { additionalProperty: param },
+        message: 'should NOT have additional properties' 
+    }
+}
 
 function InvalidArgument(message) {
     this.name = 'InvalidSchemaArgument';
@@ -37,8 +49,10 @@ function resourceToArrayOfKeys(resource) {
 }
 
 function addUnrecordedErrors(unrecordedErrors, recordedErrors) {
+    if(unrecordedErrors.length > 0) {
     for(let i = 0; i < unrecordedErrors.length; i++) {
         recordedErrors.push(unrecordedErrors[i]);
+     }
     }
     return recordedErrors;
 }
@@ -55,12 +69,12 @@ const resourceJSON = fs.readFileSync('/home/victor/Documents/Diploma/FHIR valida
 const resourceToBeValidated = JSON.parse(resourceJSON);
 var validate = ajv.addSchema(schema).compile(schema);
 var valid = validate(resourceToBeValidated);
-console.log(valid);
+console.log(validate.errors.length);
 if(!valid) {
     var uniqueErrors = new Map();
     for(let i = 0; i < validate.errors.length; i++) {
         if(validate.errors[i].params.additionalProperty &&
-           !Object.keys(schema.definitions[`${resourceToBeValidated.resourceType}`].properties).includes(validate.errors[i].params.additionalProperty) && !uniqueErrors.has(validate.errors[i].params.additionalProperty)) { 
+           !Object.keys(schema.definitions[`${resourceToBeValidated.resourceType}`].properties).includes(validate.errors[i].params.additionalProperty) && !uniqueErrors.has(validate.errors[i].params.additionalProperty)) {
             uniqueErrors.set(validate.errors[i].params.additionaLProperty, validate.errors[i]);
         }
     }
@@ -68,3 +82,4 @@ if(!valid) {
 }
 console.timeEnd("Execution time");
 console.log(findUnrecordedErrors(resourceToArrayOfKeys(resourceToBeValidated), schemaToArrayOfKeys(schema, resourceToBeValidated), getUniqueErrors(validate.errors)));
+console.log(isResourceTypePresented(resourceToArrayOfKeys(resourceToBeValidated)));
