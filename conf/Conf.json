@@ -1,0 +1,8 @@
+{
+    "pathToSchema": "../fhir-schemas/fhir.schema.json",
+    "showAllErrors": false,
+    "logErrors": false,
+    "logValidResources": false,
+    "logIntoConsole": true
+}
+
