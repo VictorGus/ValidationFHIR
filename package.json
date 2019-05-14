@@ -20,10 +20,6 @@
   },
   "homepage": "https://github.com/VictorGus/ValidationFHIR#readme",
   "dependencies": {
-    "aja": "^0.4.1",
-    "ajv": "^6.10.0",
-    "djv": "^2.1.2",
-    "js-schema": "^1.0.1",
-    "jsonschema": "^1.2.4"
+    "ajv": "^6.10.0"
   }
 }
