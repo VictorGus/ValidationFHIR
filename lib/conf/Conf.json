@@ -1,8 +1,12 @@
 {
-    "pathToSchema": "../fhir-schemas/fhir.schema.json",
-    "showAllErrors": false,
+    "pathToSchema": "./fhir-schemas/fhir.schema.json",
+    "schemaDraft": 6,
+    "showAllErrors": true,
+    "pathToLogDirectory": "pathToLog",
     "logErrors": false,
     "logValidResources": false,
-    "logIntoConsole": true
+    "logIntoConsole": true,
+    "logValidationTime": true,
+    "logValidationTime": false
 }
 

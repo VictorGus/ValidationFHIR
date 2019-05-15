@@ -1,10 +1,9 @@
 var Ajv = require('ajv');
 const fs = require('fs');
-const ValidationErrorsManager = require('./lib/errormanagement.js');
 var ajv = new Ajv();
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 console.time("Execution time");
-const jsonFile = fs.readFileSync("/home/victor/Downloads/fhir.schema.json");
+const jsonFile = fs.readFileSync("/home/victor/Documents/Diploma/JSON schema validation/fhir-schemas/fhir.schema.json");
 const schema = JSON.parse(jsonFile);
 
 
@@ -21,7 +20,7 @@ function createValidationError(newMessage, errorType, errorParam,  invalidObject
                 schemaPath: `#/${errorType}`,
                 message: newMessage
             }
-            temp[i]={}
+            temp[i]={};
             temp[i][`${errorParam}`] = invalidObject[i];
             arrayOfErrors[i]['params'] = temp[i];
         }
@@ -98,16 +97,16 @@ function filterErrors(schemaKeys, arrayOfErrors) {
 }
 
 const resourceJSON = fs.readFileSync('/home/victor/Documents/Diploma/FHIR validation app/Resources/claim.json');
-const resourceToBeValidated = JSON.parse(resourceJSON);
-const ValidationSchema = require('./lib/schema.js');
-const validationSchema = new ValidationSchema(schema, resourceToBeValidated);
-console.log(validationSchema.schemaAsArrayOfKeys);
 var validate = ajv.addSchema(schema).compile(schema);
+const resourceToBeValidated = JSON.parse(resourceJSON);
 var valid = validate(resourceToBeValidated);
 if (!valid) {
-
-    const validationErrorManager = new ValidationErrorsManager(validationErrorManager.errors, )
-    validate.errors = filterErrors(schemaToArrayOfKeys(schema, resourceToBeValidated), validate.errors);
-    console.log(addUnrecordedErrors(findUnrecordedErrors(resourceToArrayOfKeys(resourceToBeValidated), schemaToArrayOfKeys(schema, resourceToBeValidated), validate.errors), validate.errors));
+    //validate.errors = filterErrors(schemaToArrayOfKeys(schema, resourceToBeValidated), validate.errors);
+    for(let i = 0; i < validate.errors.length; i++) {
+        if(validate.errors[i].message != 'should NOT have additional properties') {
+            console.log(validate.errors[i]);
+        }
+    }
+    // console.log(addUnrecordedErrors(findUnrecordedErrors(resourceToArrayOfKeys(resourceToBeValidated), schemaToArrayOfKeys(schema, resourceToBeValidated), validate.errors), validate.errors));
 }
 console.timeEnd("Execution time");
