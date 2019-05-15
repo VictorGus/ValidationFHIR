@@ -31,6 +31,7 @@ function validateResource(pathToResource) {
                 const validationErrorManager = new ValidationErrorManager(validate.errors, schema.schemaAsArrayOfKeys, resourceToBeValidated.resourceAsArrayOfKeys);
                 const logger = new Logger(validationErrorManager.arrayOfErrors, resourceToBeValidated);
                 logger.logIntoConsole();
+                logger.logIntoFile();
                 return isValid;
             }
         } else {

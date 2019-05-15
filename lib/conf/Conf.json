@@ -2,7 +2,7 @@
     "pathToSchema": "./fhir-schemas/fhir.schema.json",
     "schemaDraft": 6,
     "showAllErrors": true,
-    "pathToLogDirectory": "pathToLog",
+    "pathToLogDirectory": "./logs",
     "logErrors": false,
     "logValidResources": false,
     "logIntoConsole": true,
