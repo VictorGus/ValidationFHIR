@@ -5,17 +5,44 @@ const getObjectFromFile = require("./lib/data.js");
 const ValidationErrorManager = require('./lib/errormanagement.js');
 const Logger = require('./lib/logger.js');
 
-function validateResource(pathToResource) {
+/**
+ * Creates FHIR resource validator instance.
+ * Constructor of FHIRValidation has no input params
+ * @author VictorGus
+ * @version 1.0
+ */
+class FHIRValidation{
+/**
+ * Validates resource in according to specified in configuration file FHIR schema
+ * @this FHIRValidation
+ * @param {String} or {object} inputResource specifies a path to resource or it is a JavaScript object that represents resource
+ * @param {Boolean} logIntoConsole is optional parameter(can be specified by editing ./lib/Conf/conf.json file) determines will validation errors be shown in console
+ * @param {Boolean} logIntoFile is optional parameter(can be specified by editing ./lib/Conf/conf.json file) determines will validation errors be logged into a file
+ * @returns {Boolean} true in a case when input resource is valid and false when it is invalid 
+ */
+validateResource(inputResource, logIntoConsole = getObjectFromFile('./lib/conf/Conf.json').logErrorsIntoConsole,
+                 logIntoFile = getObjectFromFile('./lib/conf/Conf.json').logErrorsIntoFile) {
+
+    /**
+     * Checks if input resource contains resourceType property and it presented correctly or not
+     * @param {Object} schema is FHIR validation JSON schema
+     * @parama {Object} resource is FHIR resource that is being validated
+     * @this validateResource
+     */
     const isResourceTypeValid = (schema, resource) => {
         const definitions = Object.keys(schema.schemaAsObject.definitions);
-        if(resource.resourceAsArrayOfKeys.includes('resourceType')){
+        if(resource.resourceAsArrayOfKeys.includes('resourceType')) {
             return definitions.includes(resource.resourceAsObject.resourceType); 
         } else {
             return false;
         }
-    } 
-
-    const resource = getObjectFromFile(pathToResource);
+    }
+    var resource = {};
+    if(typeof inputResource == 'string') {
+        resource = getObjectFromFile(inputResource);
+    } else {
+        resource = inputResource; 
+    }
     const resourceToBeValidated = new Resource(resource);
     const ajvConfigurator = new AjvConfigurator();
     const schema = new JsonSchema(resourceToBeValidated.resourceAsObject);
@@ -25,18 +52,31 @@ function validateResource(pathToResource) {
             const validate = ajvConfigurator.ajv.addSchema(schema.schemaAsObject).compile(schema.schemaAsObject);
             const isValid = validate(resourceToBeValidated.resourceAsObject);
             if(isValid) {
-                console.log(`Resource ${resourceToBeValidated.resourceAsObject.resourceType} is valid`);
                 return isValid;
             } else {
                 const validationErrorManager = new ValidationErrorManager(validate.errors, schema.schemaAsArrayOfKeys, resourceToBeValidated.resourceAsArrayOfKeys);
                 const logger = new Logger(validationErrorManager.arrayOfErrors, resourceToBeValidated);
-                logger.logIntoConsole();
-                logger.logIntoFile();
+                if(logIntoConsole) {
+                    logger.logIntoConsole();
+                }
+                if(logIntoFile) {
+                    logger.logIntoFile();
+                }
+                this.log = logger.loggedErrors;
                 return isValid;
             }
         } else {
-            const logger = new Logger();
-            console.log(`Resource is invalid - resourceType property is required`);
+            const validationErrorManager = new ValidationErrorManager(1, [], resourceToBeValidated.resourceAsArrayOfKeys);
+            const missingProperty = [];
+            missingProperty[0] = validationErrorManager.createValidationError('should have required property "resourceType"', 'required', 'missingProperty', 'resourceType');
+            const logger = new Logger(missingProperty, resourceToBeValidated);
+            if(logIntoFile) {
+                logger.logIntoConsole();
+            }
+            if(logIntoConsole) {
+               logger.logIntoConsole();
+            }
+            this.log = logger.loggedErrors;
             return false;
         }
     } else {
@@ -44,7 +84,10 @@ function validateResource(pathToResource) {
         return false;
     }
 }
+}
+const validation = new FHIRValidation();
+const test = getObjectFromFile('/home/victor/Documents/Diploma/FHIR validation app/Resources/claim.json');
+console.log(validation.validateResource(test));
+console.log(validation.log);
 
-validateResource('/home/victor/Documents/Diploma/FHIR validation app/Resources/claim.json');
-
-module.exports = validateResource;
+module.exports = FHIRValidation;
