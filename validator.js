@@ -21,8 +21,8 @@ ram {Boolean} logIntoConsole is optional parameter(can be specified by editing .
  * @param {Boolean} logIntoFile is optional parameter(can be specified by editing ./lib/Conf/conf.json file) determines will validation errors be logged into a file
  * @returns {Boolean} true in a case when input resource is valid and false when it is invalid 
  */
-validateResource(inputResource, logIntoConsole = getObjectFromFile('./lib/conf/Conf.json').logErrorsIntoConsole,
-                 logIntoFile = getObjectFromFile('./lib/conf/Conf.json').logErrorsIntoFile) {
+validateResource(inputResource, logIntoConsole = getObjectFromFile(__dirname + '/lib/conf/Conf.json').logErrorsIntoConsole,
+                 logIntoFile = getObjectFromFile(__dirname + '/lib/conf/Conf.json').logErrorsIntoFile) {
 
     /**
      * Checks if input resource contains resourceType property and it presented correctly or not

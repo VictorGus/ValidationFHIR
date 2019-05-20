@@ -1,0 +1,91 @@
+{
+    "resourceType": "Claim",
+    "id": "12424bc3-278e-4731-b286-1e240b32a438",
+        "status": "active",
+        "type": {
+          "coding": [
+              {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "institutional"
+            }
+          ]
+        },
+        "use": "pedik",
+	"test2": 1,
+        "patient": {
+          "reference": "urn:uuid:d9cb1481-35fe-466e-9f73-266d78e559d4"
+        },
+        "billablePeriod": {
+          "start": "1998-03-12T08:40:59+03:00",
+          "end": "1998-03-12T08:55:59+03:00"
+        },
+        "created": "1998-03-12T08:55:59+03:00",
+        "provider": {
+          "reference": "urn:uuid:ecc51621-0af3-3b35-ac3e-8b1e34022e92"
+        },
+        "priority": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+              "code": "normal"
+            }
+          ]
+        },
+        "diagnosis": [
+          {
+            "sequence": 1,
+            "diagnosisReference": {
+              "reference": "urn:uuid:f7c4ccfa-6553-484a-9b5b-65b84b686af9"
+            }
+          }
+        ],
+        "insurance": [
+          {
+            "sequence": 1,
+            "focal": false,
+            "coverage": {
+              "display": "private"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "185349003",
+                  "display": "Encounter for check up (procedure)"
+                }
+              ],
+              "text": "Encounter for check up (procedure)"
+            },
+            "encounter": [
+              {
+                "reference": "urn:uuid:21fa2e49-e51d-4b20-927a-f50abf2a07dd"
+              }
+            ]
+          },
+          {
+            "sequence": 2,
+            "diagnosisSequence": [
+              1
+            ],
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "162864005",
+                  "display": "Body mass index 30+ - obesity (finding)"
+                }
+              ],
+              "text": "Body mass index 30+ - obesity (finding)"
+            }
+          }
+        ],
+        "total": {
+          "value": 125.00,
+          "currency": "USD"
+        }
+      }

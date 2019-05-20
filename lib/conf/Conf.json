@@ -1,9 +1,9 @@
 {
-    "pathToSchema": "./fhir-schemas/fhir.schema.json",
+    "pathToSchema": "/fhir-schemas/fhir.schema.json",
     "schemaDraft": 6,
     "showAllErrors": false,
     "pathToLogDirectory": "./logs",
     "logErrorsIntoFile": false,
-    "logErrorsIntoConsole": true
+    "logErrorsIntoConsole": false
 }
 
