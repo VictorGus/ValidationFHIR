@@ -16,7 +16,8 @@ class FHIRValidation{
  * Validates resource in according to specified in configuration file FHIR schema
  * @this FHIRValidation
  * @param {String} or {object} inputResource specifies a path to resource or it is a JavaScript object that represents resource
- * @param {Boolean} logIntoConsole is optional parameter(can be specified by editing ./lib/Conf/conf.json file) determines will validation errors be shown in console
+ * @pa
+ram {Boolean} logIntoConsole is optional parameter(can be specified by editing ./lib/Conf/conf.json file) determines will validation errors be shown in console
  * @param {Boolean} logIntoFile is optional parameter(can be specified by editing ./lib/Conf/conf.json file) determines will validation errors be logged into a file
  * @returns {Boolean} true in a case when input resource is valid and false when it is invalid 
  */
@@ -26,7 +27,7 @@ validateResource(inputResource, logIntoConsole = getObjectFromFile('./lib/conf/C
     /**
      * Checks if input resource contains resourceType property and it presented correctly or not
      * @param {Object} schema is FHIR validation JSON schema
-     * @parama {Object} resource is FHIR resource that is being validated
+     * @param {Object} resource is FHIR resource that is being validated
      * @this validateResource
      */
     const isResourceTypeValid = (schema, resource) => {
@@ -38,6 +39,9 @@ validateResource(inputResource, logIntoConsole = getObjectFromFile('./lib/conf/C
         }
     }
     var resource = {};
+    if(typeof inputResource != 'object' && typeof inputResource != "string") {
+        throw new TypeError('Input argument is supposed to be object or string');
+    }
     if(typeof inputResource == 'string') {
         resource = getObjectFromFile(inputResource);
     } else {
@@ -85,9 +89,4 @@ validateResource(inputResource, logIntoConsole = getObjectFromFile('./lib/conf/C
     }
 }
 }
-const validation = new FHIRValidation();
-const test = getObjectFromFile('/home/victor/Documents/Diploma/FHIR validation app/Resources/claim.json');
-console.log(validation.validateResource(test));
-console.log(validation.log);
-
 module.exports = FHIRValidation;
