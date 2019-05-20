@@ -2,9 +2,12 @@
   "name": "json-schema-resource-validation",
   "version": "1.0.0",
   "description": "Validation based on JSON schema ",
-  "main": "index.js",
+  "main": "validator.js",
   "scripts": {
-    "test": "console.log(\"TEST\")"
+    "test": "mocha"
+  },
+  "bin": {
+    "fhirvalidation": "./fhirvalidation"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,10 @@
   "homepage": "https://github.com/VictorGus/ValidationFHIR#readme",
   "dependencies": {
     "ajv": "^6.10.0",
-    "log4js": "^4.2.0"
+    "commander": "^2.20.0",
+    "js-yaml": "^3.13.1",
+    "log4js": "^4.2.0",
+    "mocha": "^6.1.4",
+    "node-cli-boilerplate": "0.0.3"
   }
 }
