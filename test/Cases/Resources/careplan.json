@@ -1,0 +1,68 @@
+{
+        "resourceType": "CarePlan",
+        "id": "d5036438-388b-442d-ae8c-b88e42df8a85",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Care Plan for Cancer care plan.<br/>Activities: <ul><li>Cancer care plan</li><li>Cancer care plan</li></ul><br/>Care plan is meant to treat Neoplasm of prostate.</div>"
+        },
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "736252007",
+                "display": "Cancer care plan"
+              }
+            ],
+            "text": "Cancer care plan"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d9cb1481-35fe-466e-9f73-266d78e559d4"
+        },
+        "encounter": {
+          "reference": "urn:uuid:be3bd49e-555e-4579-bd73-2f6886bd1bde"
+        },
+        "period": {
+          "start": "2018-11-01T08:40:59+03:00"
+        },
+        "addresses": [
+          {
+            "reference": "urn:uuid:f076d4a8-bfa5-4f1c-b976-40d694e0e95c"
+          }
+        ],
+        "activity": [
+          {
+            "detail": {
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "408580007",
+                    "display": "Physical activity target light exercise"
+                  }
+                ],
+                "text": "Physical activity target light exercise"
+              },
+              "status": "in-progress"
+            }
+          },
+          {
+            "detail": {
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "229578001",
+                    "display": "Ice bath treatment"
+                  }
+                ],
+                "text": "Ice bath treatment"
+              },
+              "status": "in-progress"
+            }
+          }
+        ]
+      }

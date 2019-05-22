@@ -1,0 +1,48 @@
+{
+        "resourceType": "Encounter",
+        "id": "be3bd49e-555e-4579-bd73-2f6886bd1bde",
+        "status": "finished",
+        "class": {
+          "code": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185347001",
+                "display": "Encounter for problem"
+              }
+            ],
+            "text": "Encounter for problem"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d9cb1481-35fe-466e-9f73-266d78e559d4"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:1842c39c-a236-44cf-8cd9-b05e4f74af9f"
+            }
+          }
+        ],
+        "period": {
+          "start": "2018-11-01T08:40:59+03:00",
+          "end": "2018-11-01T12:55:59+03:00"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "126906006",
+                "display": "Neoplasm of prostate"
+              }
+            ]
+          }
+        ],
+        "serviceProvider": {
+          "reference": "urn:uuid:ecc51621-0af3-3b35-ac3e-8b1e34022e92"
+        }
+      }

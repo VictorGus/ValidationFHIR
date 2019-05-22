@@ -1,0 +1,60 @@
+{
+        "resourceType": "MedicationRequest",
+        "id": "f638ee25-30a6-4be0-b866-9816ecf88abf",
+        "status": "stopped",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "316672",
+              "display": "Simvistatin 10 MG"
+            }
+          ],
+          "text": "Simvistatin 10 MG"
+        },
+        "subject": {
+          "reference": "urn:uuid:d9cb1481-35fe-466e-9f73-266d78e559d4"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cf0405b9-f4c5-4b81-87ec-80b59198b7ff"
+        },
+        "authoredOn": "2014-10-12T09:40:59+04:00",
+        "requester": {
+          "reference": "urn:uuid:1842c39c-a236-44cf-8cd9-b05e4f74af9f"
+        },
+        "reasonReference": [
+          {
+            "reference": "urn:uuid:b472328a-40ae-4c4b-8cee-2332dbe6a6b1"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "sequence": 1,
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1.0,
+                "periodUnit": "d"
+              }
+            },
+            "asNeededBoolean": false,
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1.0
+                }
+              }
+            ]
+          }
+        ]
+      }

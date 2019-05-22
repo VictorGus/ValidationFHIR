@@ -1,0 +1,38 @@
+{
+        "resourceType": "Condition",
+        "id": "c06818c1-e0f8-4a7d-a368-44b820c74883",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "92691004",
+              "display": "Carcinoma in situ of prostate (disorder)"
+            }
+          ],
+          "text": "Carcinoma in situ of prostate (disorder)"
+        },
+        "subject": {
+          "reference": "urn:uuid:d9cb1481-35fe-466e-9f73-266d78e559d4"
+        },
+        "encounter": {
+          "reference": "urn:uuid:be3bd49e-555e-4579-bd73-2f6886bd1bde"
+        },
+        "onsetDateTime": "2018-11-01T08:40:59+03:00",
+        "recordedDate": "2018-11-01T08:40:59+03:00"
+      }

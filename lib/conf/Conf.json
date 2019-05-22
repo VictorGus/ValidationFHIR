@@ -4,6 +4,6 @@
     "showAllErrors": false,
     "pathToLogDirectory": "./logs",
     "logErrorsIntoFile": false,
-    "logErrorsIntoConsole": false
+    "logErrorsIntoConsole": true
 }
 

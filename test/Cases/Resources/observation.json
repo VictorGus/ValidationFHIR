@@ -1,0 +1,41 @@
+{
+        "resourceType": "Observation",
+        "id": "983bb59c-6d78-4533-bb64-bbf8f379d712",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "vital-signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Body Height"
+            }
+          ],
+          "text": "Body Height"
+        },
+        "subject": {
+          "reference": "urn:uuid:d9cb1481-35fe-466e-9f73-266d78e559d4"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a620bd2c-8981-47eb-b752-ec412ef2cab1"
+        },
+        "effectiveDateTime": "2009-09-10T09:40:59+04:00",
+        "issued": "2009-09-10T09:40:59.710+04:00",
+        "valueQuantity": {
+          "value": 181.7874588128752,
+          "unit": "cm",
+          "system": "http://unitsofmeasure.org",
+          "code": "cm"
+        }
+      }
+
