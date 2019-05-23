@@ -115,7 +115,7 @@
             "use": "home"
           }
         ],
-        "gender": "male",
+        "gender": "invalid",
         "birthDate": "2005-06-15",
         "address": [
           {
@@ -153,7 +153,7 @@
           ],
           "text": "Never Married"
         },
-    "multipleBirthBoolean": 1,
+    "multipleBirthBoolean": false,
         "communication": [
           {
             "language": {

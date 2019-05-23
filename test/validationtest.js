@@ -13,7 +13,8 @@ describe('Validation correctness checking', function(){
        }).timeout(2500);
 
        it('should return true when Observation resource is valid', function() {
-           assert.equal(validation.validateResource(__dirname + '/Cases/Resources/observation.json', false), true);
+ 
+          assert.equal(validation.validateResource(__dirname + '/Cases/Resources/observation.json', false), true);
        }).timeout(2500);
 
        it('should return true when Bundle resource is valid', function() {
@@ -86,3 +87,32 @@ describe('Validation correctness checking', function(){
 
    });
 });
+
+describe('Validation error type correctness checking', function(){
+    describe('#validateResource()', function() {
+        it('should have validation error keyword additionalProperties', function(){
+            validation.validateResource(__dirname + '/Cases/Resources/invalidbundle.json', false);
+            assert.equal(validation.log[2][4][0],  "Error keyword: additionalProperties");
+        })
+
+        it('should have validation error keyword required', function(){
+            validation.validateResource(__dirname + '/Cases/Resources/invalidobservation.json', false);
+            assert.equal(validation.log[2][4][0],  "Error keyword: required");
+        })
+
+        it('should have validation error keyword required', function(){
+            validation.validateResource(__dirname + '/Cases/Resources/invalidobservation.json', false);
+            assert.equal(validation.log[2][4][0],  "Error keyword: required");
+        })
+
+        it('should have validation error keyword type', function(){
+            validation.validateResource(__dirname + '/Cases/Resources/invalidorganization.json', false);
+            assert.equal(validation.log[2][4][0],  "Error keyword: type");
+        })
+
+        it('should have validation error keyword enum', function(){
+            validation.validateResource(__dirname + '/Cases/Resources/invalidpatient.json', false);
+            assert.equal(validation.log[2][4][0],  "Error keyword: enum");
+        })
+    })
+})
