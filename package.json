@@ -1,20 +1,24 @@
 {
   "name": "json-schema-resource-validation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Validation based on JSON schema ",
   "main": "validator.js",
   "scripts": {
     "test": "mocha"
   },
   "bin": {
-    "fhirvalidation": "./fhirvalidation"
+    "fhirvalidation": "fhirvalidation"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VictorGus/ValidationFHIR.git"
   },
   "keywords": [
-    "FHIR", "fhir validation", "fhir resource validation", "resource validation", "json fhir schema"
+    "FHIR",
+    "fhir validation",
+    "fhir resource validation",
+    "resource validation",
+    "json fhir schema"
   ],
   "author": "VictorGus",
   "license": "ISC",
@@ -26,7 +30,7 @@
     "ajv": "^6.10.0",
     "commander": "^2.20.0",
     "js-yaml": "^3.13.1",
-    "log4js": "^4.2.0",
+    "log4js": "^4.3.0",
     "mocha": "^6.1.4",
     "node-cli-boilerplate": "0.0.3"
   }
