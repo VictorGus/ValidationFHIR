@@ -14,7 +14,7 @@
     "url": "git+https://github.com/VictorGus/ValidationFHIR.git"
   },
   "keywords": [
-    "FHIR"
+    "FHIR", "fhir validation", "fhir resource validation", "resource validation", "json fhir schema"
   ],
   "author": "VictorGus",
   "license": "ISC",
