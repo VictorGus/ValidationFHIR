@@ -54,7 +54,7 @@ resourceValidation.validateResource('/home/username/Resources/bundle.json');
 ** Moreover: **
 <addr>_You can output validation error log into console or log file by using additional input parameters for ``.validateResource()``._
 
-_** Output into console: **_
+** Output into console: **
 ```
 const ResourceValidation = require('json-schema-resource-validation');
 const resourceValidation = new ResourceValidation();
