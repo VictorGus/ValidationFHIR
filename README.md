@@ -93,3 +93,7 @@ As you can see, log settings, validation schema, schema draft can be set via thi
 **NOTE:**
 * By deffault validator outputs only one error of the whole error array
 * You can output the whole array switching ``showAllErrors`` to ``true``(for v1.0.3 it works only with additional property errors)
+
+## Command line interface
+***
+You can use resource validator via console. Just go to directory ``/path_to_your_project/node_modules/json-schema-resource-validation/ `` and type into your console `.fhirvalidation -h`.
