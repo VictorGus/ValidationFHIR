@@ -61,6 +61,7 @@ const resourceValidation = new ResourceValidation();
 resourceValidation.validateResource('/home/username/Resources/patient.json', true);
 ```
 _Result:_
+
 ![image](https://user-images.githubusercontent.com/43377382/58316745-ed7bac00-7e1c-11e9-8756-2c03511a0362.png)
 
 <addr> _**Output into file:**_
@@ -70,6 +71,7 @@ const resourceValidation = new ResourceValidation();
 resourceValidation.validateResource('/home/username/Resources/claim.json', false, true);
 ```
 _Result:_
+  
 ![image](https://user-images.githubusercontent.com/43377382/58317215-059ffb00-7e1e-11e9-8b08-c6dbe6b93958.png)
 
 ## How to configure resource validator
