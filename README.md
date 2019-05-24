@@ -51,10 +51,10 @@ resourceValidation.validateResource('/home/username/Resources/bundle.json');
 
 <addr> If resource is invalid you can get log of validation errors it's stored in ``.log`` _property_ of validation instance.
 
-** Moreover: **
+**Moreover:**
 <addr>_You can output validation error log into console or log file by using additional input parameters for ``.validateResource()``._
 
-** Output into console: **
+_**Output into console:**_
 ```
 const ResourceValidation = require('json-schema-resource-validation');
 const resourceValidation = new ResourceValidation();
@@ -63,7 +63,7 @@ resourceValidation.validateResource('/home/username/Resources/patient.json', tru
 _Result:_
 ![image](https://user-images.githubusercontent.com/43377382/58316745-ed7bac00-7e1c-11e9-8756-2c03511a0362.png)
 
-<addr> _** Output into file: **_
+<addr> _**Output into file:**_
 ```
 const ResourceValidation = require('json-schema-resource-validation');
 const resourceValidation = new ResourceValidation();
@@ -88,6 +88,6 @@ _Result:_
 ```
 As you can see, log settings, validation schema, schema draft can be set via this file.
 
-** NOTE: **
+**NOTE:**
 * By deffault validator outputs only one error of the whole error array
 * You can output the whole array switching ``showAllErrors`` to ``true``(for v1.0.3 it works only with additional property errors)
