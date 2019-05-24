@@ -3,7 +3,7 @@
     "schemaDraft": 6,
     "showAllErrors": false,
     "pathToLogDirectory": "./logs",
-    "logErrorsIntoFile": false,
+    "logErrorsIntoFile": true,
     "logErrorsIntoConsole": true
 }
 
