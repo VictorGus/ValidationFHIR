@@ -3,6 +3,7 @@ const Resource = require('./lib/resource.js');
 const AjvConfigurator = require('./lib/ajvconnector.js');
 const getObjectFromFile = require("./lib/data.js");
 const ValidationErrorManager = require('./lib/errormanagement.js');
+const compiledSchema = require('./lib/compiledschema.js');
 const Logger = require('./lib/logger.js');
 
 /**
@@ -50,10 +51,9 @@ validateResource(inputResource, logIntoConsole = getObjectFromFile(__dirname + '
     const resourceToBeValidated = new Resource(resource);
     const ajvConfigurator = new AjvConfigurator();
     const schema = new JsonSchema(resourceToBeValidated.resourceAsObject);
-    if(ajvConfigurator.ajv.validateSchema(schema.schemaAsObject)) {
         if(isResourceTypeValid(schema, resourceToBeValidated)) {
             schema.setSchemaAsArrayOfKeys(resourceToBeValidated);
-            const validate = ajvConfigurator.ajv.addSchema(schema.schemaAsObject).compile(schema.schemaAsObject);
+            const validate = compiledSchema;
             const isValid = validate(resourceToBeValidated.resourceAsObject);
             if(isValid) {
                 return isValid;
@@ -83,10 +83,7 @@ validateResource(inputResource, logIntoConsole = getObjectFromFile(__dirname + '
             this.log = logger.loggedErrors;
             return false;
         }
-    } else {
-        console.log('Schema is invalid');
-        return false;
-    }
 }
 }
+
 module.exports = FHIRValidation;
