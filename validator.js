@@ -12,7 +12,7 @@ const Logger = require('./lib/logger.js');
  * @author VictorGus
  * @version 1.0
  */
-class FHIRValidation{
+class FHIRValidation {
 /**
  * Validates resource in according to specified in configuration file FHIR schema
  * @this FHIRValidation
@@ -51,14 +51,14 @@ validateResource(inputResource, logIntoConsole = getObjectFromFile(__dirname + '
     const resourceToBeValidated = new Resource(resource);
     const ajvConfigurator = new AjvConfigurator();
     const schema = new JsonSchema(resourceToBeValidated.resourceAsObject);
-        if(isResourceTypeValid(schema, resourceToBeValidated)) {
-            schema.setSchemaAsArrayOfKeys(resourceToBeValidated);
-            const validate = compiledSchema;
-            const isValid = validate(resourceToBeValidated.resourceAsObject);
-            if(isValid) {
-                return isValid;
-            } else {
-                const validationErrorManager = new ValidationErrorManager(validate.errors, schema.schemaAsArrayOfKeys, resourceToBeValidated.resourceAsArrayOfKeys);
+    if(isResourceTypeValid(schema, resourceToBeValidated)) {
+        schema.setSchemaAsArrayOfKeys(resourceToBeValidated);
+        const validate = compiledSchema;
+        const isValid = validate(resourceToBeValidated.resourceAsObject);
+        if(isValid) {
+           return isValid;
+        } else {
+                const validationErrorManager = new ValidationErrorManager(validate.errors, schema, resourceToBeValidated);
                 const logger = new Logger(validationErrorManager.arrayOfErrors, resourceToBeValidated);
                 if(logIntoConsole) {
                     logger.logIntoConsole();
