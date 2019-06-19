@@ -90,9 +90,9 @@ describe('Validation correctness checking', function(){
 
 describe('Validation error type correctness checking', function(){
     describe('#validateResource()', function() {
-        it('should have validation error keyword additionalProperties', function(){
+        it('should have validation error keyword enum', function(){
             validation.validateResource(__dirname + '/Cases/Resources/invalidbundle.json', false);
-            assert.equal(validation.log[2][4][0],  "Error keyword: additionalProperties");
+            assert.equal(validation.log[2][4][0],  "Error keyword: enum");
         })
 
         it('should have validation error keyword required', function(){
