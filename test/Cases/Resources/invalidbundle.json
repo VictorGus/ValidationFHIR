@@ -6,7 +6,6 @@
       "fullUrl": "urn:uuid:d9cb1481-35fe-466e-9f73-266d78e559d4",
       "resource": {
         "resourceType": "Patient",
-	"test": 1,
         "id": "d9cb1481-35fe-466e-9f73-266d78e559d4",
         "text": {
           "status": "generated",
@@ -153,7 +152,7 @@
             "use": "home"
           }
         ],
-        "gender": "male",
+        "gender": "test",
         "birthDate": "1950-02-16",
         "address": [
           {
