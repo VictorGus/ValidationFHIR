@@ -30,7 +30,7 @@
     "ajv": "^6.10.0",
     "commander": "^2.20.0",
     "js-yaml": "^3.13.1",
-    "log4js": "^4.3.0",
+    "log4js": "^6.4.0",
     "mocha": "^6.1.4",
     "node-cli-boilerplate": "0.0.3"
   }
