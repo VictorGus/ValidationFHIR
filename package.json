@@ -31,7 +31,7 @@
     "commander": "^2.20.0",
     "js-yaml": "^3.13.1",
     "log4js": "^4.3.0",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "node-cli-boilerplate": "0.0.3"
   }
 }
